@@ -1,4 +1,5 @@
 "use client";
+
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import {
@@ -11,6 +12,7 @@ import {
   SlidersHorizontal,
   User,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -37,11 +39,14 @@ const SidebarLink = ({
       <div
         className={`cursor-pointer flex items-center ${
           isCollapsed ? "justify-center py-4" : "justify-start px-8 py-4"
-        } hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
+        }
+        hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
           isActive ? "bg-blue-200 text-white" : ""
-        }`}
+        }
+      }`}
       >
         <Icon className="w-6 h-6 !text-gray-700" />
+
         <span
           className={`${
             isCollapsed ? "hidden" : "block"
@@ -54,7 +59,7 @@ const SidebarLink = ({
   );
 };
 
-const Siderbar = () => {
+const Sidebar = () => {
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
@@ -70,19 +75,19 @@ const Siderbar = () => {
 
   return (
     <div className={sidebarClassNames}>
-      {/* Top Logo */}
+      {/* TOP LOGO */}
       <div
         className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
-        <div>logo</div>
+        <div>Logo</div>
         <h1
-          className={`font-extrabold text-2xl ${
+          className={`${
             isSidebarCollapsed ? "hidden" : "block"
-          }`}
+          } font-extrabold text-2xl`}
         >
-          EDSTOK
+          EDSTOCK
         </h1>
 
         <button
@@ -133,12 +138,12 @@ const Siderbar = () => {
         />
       </div>
 
-      {/*FOOTER */}
-      <div className={`${isSidebarCollapsed ? "hidden" : "block"}`}>
-        <p className="text-center text-xs text-gray-50">&Copy 2024 Edstock</p>
+      {/* FOOTER */}
+      <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
+        <p className="text-center text-xs text-gray-500">&copy; 2024 Edstock</p>
       </div>
     </div>
   );
 };
 
-export default Siderbar;
+export default Sidebar;
