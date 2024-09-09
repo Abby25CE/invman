@@ -81,7 +81,13 @@ const Sidebar = () => {
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
-        <div>Logo</div>
+        <Image
+          className="rounded-fulld w-8"
+          src="https://s3-invntorymanagement.s3.us-east-2.amazonaws.com/logo.png"
+          width={27}
+          height={27}
+          alt="Edstok-Logo"
+        />
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
